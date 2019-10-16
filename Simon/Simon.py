@@ -331,24 +331,10 @@ class Simon:
             end - start, (end - start) / data.X_test.shape[0]) % (scores[1] * 100))
         
         probabilities = model.predict(data.X_test, verbose=1)
-        ##  uncomment if interested in "argmax" class, i.e., the maximum probability/class
-        # m = np.amax(probabilities, axis=1)
-        # max_index = np.argmax(probabilities, axis=1)
-        # Categories = encoder.categories
-        # print("Remember that the fixed categories are:")
-        # print(Categories)
-        # print("Most Likely Predicted Category/Labels are: ")
-        # print((np.array(Categories))[max_index])
-        # print("Associated max probabilities/confidences:")
-        # print(m)
-        # next, all probabilities above a certain threshold
+        # all probabilities above a certain threshold
         prediction_indices = probabilities > p_threshold
         y_pred = np.zeros(data.y_test.shape)
         y_pred[prediction_indices] = 1
-        # print("DEBUG::y_test:")
-        # print(data.y_test)
-        # print("DEBUG::y_pred:")
-        # print(y_pred)
         print("'Binary' accuracy ((TP+TN)/total) sample number is:")
         print(self.eval_binary_accuracy(data.y_test,y_pred)[0])
         print("'Binary' confusion ((FP+FN)/total) sample number is:")
