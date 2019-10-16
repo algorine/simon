@@ -318,8 +318,7 @@ class Simon:
     
         print('losses: ')
         print(history.history['loss'])
-        print('accuracies: ')
-        print(history.history['val_binary_accuracy'])
+        
         return history
 
     def evaluate_model(self,max_cells, model, data, encoder, p_threshold):
