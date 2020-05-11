@@ -146,7 +146,7 @@ class Simon:
 
         encoder = Model(input=in_sentence, output=sent_encode)
 
-        print(encoder.summary())
+        #print(encoder.summary())
         encoded = TimeDistributed(encoder)(document)
 
         # encoded: sentences to bi-lstm for document encoding
@@ -198,7 +198,7 @@ class Simon:
 
         encoder = Model(input=in_sentence, output=sent_encode)
 
-        print(encoder.summary())
+        #print(encoder.summary())
         encoded = TimeDistributed(encoder)(document)
 
         # encoded: sentences to bi-lstm for document encoding
