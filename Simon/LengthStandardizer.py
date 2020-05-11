@@ -49,7 +49,7 @@ def DataLengthColumnStandardizerRaw(column, max_cells):
 # for 'statistical' (ordinal, categorical, etc) variable prediction due to truncation)
 def DataLengthStandardizerRaw(data, max_cells):
     nx, ny = data.shape
-    out = DataLengthColumnStandardizerRaw(data.ix[:,0],max_cells)
+    out = DataLengthColumnStandardizerRaw(data.iloc[:,0],max_cells)
     for i in np.arange(1,ny):
-        out = np.concatenate((out,DataLengthColumnStandardizerRaw(data.ix[:,i],max_cells)),axis=1)
+        out = np.concatenate((out,DataLengthColumnStandardizerRaw(data.iloc[:,i],max_cells)),axis=1)
     return out
